@@ -8,10 +8,10 @@ type CloneTotal struct {
 	Total int64 `json:"total"`
 }
 
-type CloneCounts struct {
-	CloneTotal
-
-	CreateAt int64 `json:"create_at"`
+func (r *CloneTotal) CleanData() {
+	if r.Total > 300 {
+		r.Total = 300
+	}
 }
 
 type PlatForm interface {

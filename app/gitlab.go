@@ -73,16 +73,12 @@ func (g *gitLabService) countsPage(pageNum int) (counts int64, err error) {
 	}
 
 	for _, id := range ids {
-		if id.IsAbnormal() {
-			counts += 2200
-			continue
-		}
-
 		total, err := g.pf.GetCloneTotal(id.Id)
 		if err != nil {
 			return 0, err
 		}
 
+		total.CleanData()
 		counts += total.Total
 	}
 
