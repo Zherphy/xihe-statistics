@@ -96,3 +96,13 @@ type Media struct {
 func (Media) TableName() string {
 	return "media_record"
 }
+
+// WuKongPublic
+type WuKongPublic struct {
+	UserName string `gorm:"username"`
+	CreateAt int64  `gorm:"create_at"`
+}
+
+func (WuKongPublic) TableName() string {
+	return "wukong_public_record"
+}

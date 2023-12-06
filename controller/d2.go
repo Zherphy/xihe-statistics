@@ -8,12 +8,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func AddRouterForFileUploadRecordController(
+func AddRouterForD2Controller(
 	rg *gin.RouterGroup,
 	fr repository.FileUploadRecord,
+	wp repository.WuKongPublic,
 ) {
 	ctl := FileUploadRecordController{
-		fs: app.NewFileUploadRecordService(fr),
+		fs: app.NewD2Service(fr, wp),
 	}
 
 	rg.GET("/v1/d2", ctl.GetFileUploadRecord)
@@ -22,7 +23,7 @@ func AddRouterForFileUploadRecordController(
 
 type FileUploadRecordController struct {
 	baseController
-	fs app.FileUploadRecordService
+	fs app.D2Service
 }
 
 // @Summary Get
@@ -33,7 +34,7 @@ type FileUploadRecordController struct {
 // @Produce json
 // @Router /v1/d2 [get]
 func (ctl *FileUploadRecordController) GetFileUploadRecord(ctx *gin.Context) {
-	dto, err := ctl.fs.GetUsersCounts()
+	dto, err := ctl.fs.Get()
 	if err != nil {
 		ctl.sendRespWithInternalError(ctx, newResponseError(err))
 

@@ -9,8 +9,8 @@ type CloneTotal struct {
 }
 
 func (r *CloneTotal) CleanData() {
-	if r.Total > 300 {
-		r.Total = 300
+	if r.Total > 500 {
+		r.Total = 500
 	}
 }
 

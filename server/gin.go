@@ -43,7 +43,7 @@ func StartWebServer(port int, timeout time.Duration, cfg *config.Config) {
 	interrupts.ListenAndServe(srv, timeout)
 }
 
-//setRouter init router
+// setRouter init router
 func setRouter(engine *gin.Engine, cfg *config.Config) {
 	docs.SwaggerInfo.BasePath = "/api"
 	docs.SwaggerInfo.Title = "xihe-statistics"
@@ -63,6 +63,10 @@ func setRouter(engine *gin.Engine, cfg *config.Config) {
 
 	fileUploadRecord := repositories.NewFileUploadRecordRepository(
 		pgsql.NewFileUploadRecordMapper(pgsql.FileUploadRecord{}),
+	)
+
+	wuKongPublicRecord := repositories.NewWuKongPublicRepository(
+		pgsql.NewWuKongPublicMapper(pgsql.WuKongPublic{}),
 	)
 
 	downloadRecord := repositories.NewDownloadRecordRepository(
@@ -107,8 +111,8 @@ func setRouter(engine *gin.Engine, cfg *config.Config) {
 			v1, registerRecord,
 		)
 
-		controller.AddRouterForFileUploadRecordController(
-			v1, fileUploadRecord,
+		controller.AddRouterForD2Controller(
+			v1, fileUploadRecord, wuKongPublicRecord,
 		)
 
 		controller.AddRouterForDownloadRecordController(
