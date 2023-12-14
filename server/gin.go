@@ -112,7 +112,7 @@ func setRouter(engine *gin.Engine, cfg *config.Config) {
 		)
 
 		controller.AddRouterForD2Controller(
-			v1, fileUploadRecord, wuKongPublicRecord,
+			v1, fileUploadRecord, wuKongPublicRecord, repoRecord,
 		)
 
 		controller.AddRouterForDownloadRecordController(
