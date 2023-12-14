@@ -13,9 +13,10 @@ func AddRouterForD2Controller(
 	fr repository.FileUploadRecord,
 	wp repository.WuKongPublic,
 	ur repository.UserWithRepo,
+	cr repository.CloudRecord,
 ) {
 	ctl := FileUploadRecordController{
-		fs: app.NewD2Service(fr, wp, ur),
+		fs: app.NewD2Service(fr, wp, ur, cr),
 	}
 
 	rg.GET("/v1/d2", ctl.GetFileUploadRecord)

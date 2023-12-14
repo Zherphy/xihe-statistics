@@ -10,11 +10,13 @@ func NewD2Service(
 	fileupload repository.FileUploadRecord,
 	wukongpublic repository.WuKongPublic,
 	userwithrepo repository.UserWithRepo,
+	cloudrepo repository.CloudRecord,
 ) D2Service {
 	return &d2Service{
 		fileupload:   fileupload,
 		wukongpublic: wukongpublic,
 		userwithrepo: userwithrepo,
+		cloudrepo:    cloudrepo,
 	}
 }
 
@@ -22,6 +24,7 @@ type d2Service struct {
 	fileupload   repository.FileUploadRecord
 	wukongpublic repository.WuKongPublic
 	userwithrepo repository.UserWithRepo
+	cloudrepo    repository.CloudRecord
 }
 
 func (s *d2Service) Get() (dto D2DTO, err error) {
@@ -49,9 +52,17 @@ func (s *d2Service) Get() (dto D2DTO, err error) {
 	}
 	user3 := rr.Users
 
+	// user use cloud repo
+	cr, err := s.cloudrepo.GetUsers()
+	if err != nil {
+		return
+	}
+	user4 := cr.Users
+
 	// append
 	users := append(user1, user2...)
 	users = append(users, user3...)
+	users = append(users, user4...)
 	users = RemoveRepeatedElement(users)
 
 	return D2DTO{

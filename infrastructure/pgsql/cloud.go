@@ -45,6 +45,35 @@ func (m *cloudRecord) GetCloudRecordCount() (counts int64, err error) {
 	return
 }
 
+func (m *cloudRecord) GetUsers() (
+	do repositories.CloudUsersDO,
+	err error,
+) {
+
+	var users []interface{}
+
+	f := func(ctx context.Context) error {
+		return cli.distinct(
+			ctx, m.table,
+			"username", &users,
+		)
+	}
+
+	if err = withContext(f); err != nil {
+		return
+	}
+
+	u, err := toArryString(users)
+	if err != nil {
+		return
+	}
+	do = repositories.CloudUsersDO{
+		Users: u,
+	}
+
+	return
+}
+
 func toCloudRecordCol(do *repositories.CloudRecordDO) CloudRecord {
 
 	return CloudRecord{

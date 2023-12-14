@@ -8,6 +8,7 @@ import (
 type CloudRecordMapper interface {
 	AddCloudRecord(*CloudRecordDO) error
 	GetCloudRecordCount() (int64, error)
+	GetUsers() (CloudUsersDO, error)
 }
 
 func NewCloudRecordRepository(mapper CloudRecordMapper) repository.CloudRecord {
@@ -23,6 +24,17 @@ func (impl *cloudRecord) Add(d *domain.Cloud) (err error) {
 	do.toCloudRecordDO(d)
 
 	return impl.mapper.AddCloudRecord(do)
+}
+
+func (impl *cloudRecord) GetUsers() (repository.CloudUsers, error) {
+	do, err := impl.mapper.GetUsers()
+	if err != nil {
+		return repository.CloudUsers{}, err
+	}
+
+	return repository.CloudUsers{
+		Users: do.Users,
+	}, nil
 }
 
 func (impl *cloudRecord) Get() (int64, error) {
@@ -41,4 +53,8 @@ type CloudRecordDO struct {
 	UserName string
 	CloudId  string
 	CreateAt int64
+}
+
+type CloudUsersDO struct {
+	Users []string
 }
