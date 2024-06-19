@@ -7,7 +7,7 @@ import (
 
 type CloudRecordMapper interface {
 	AddCloudRecord(*CloudRecordDO) error
-	GetCloudRecordCount() (int64, error)
+	GetCloudRecordCount(cloudId string) (int64, error)
 	GetUsers() (CloudUsersDO, error)
 }
 
@@ -37,8 +37,8 @@ func (impl *cloudRecord) GetUsers() (repository.CloudUsers, error) {
 	}, nil
 }
 
-func (impl *cloudRecord) Get() (int64, error) {
-	return impl.mapper.GetCloudRecordCount()
+func (impl *cloudRecord) Get(cloudType domain.CloudType) (int64, error) {
+	return impl.mapper.GetCloudRecordCount(cloudType.CloudId())
 }
 
 func (do *CloudRecordDO) toCloudRecordDO(d *domain.Cloud) {

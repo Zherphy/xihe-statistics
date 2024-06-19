@@ -16,7 +16,7 @@ func AddRouterForCloudRecordController(
 		cs: app.NewCloudRecodeService(cr),
 	}
 
-	rg.GET("/v1/cloud", ctl.Get)
+	rg.GET("/v1/cloud/:type", ctl.Get)
 }
 
 type CloudRecordController struct {
@@ -31,9 +31,16 @@ type CloudRecordController struct {
 // @Accept json
 // @Success 200 {object}
 // @Produce json
-// @Router /v1/cloud [get]
+// @Router /v1/cloud/{type} [get]
 func (ctl *CloudRecordController) Get(ctx *gin.Context) {
-	dto, err := ctl.cs.Get()
+	cmd, err := app.ToCountCloudCmd(ctx.Param("type"))
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, newResponseCodeError(errorBadRequestParam, err))
+
+		return
+	}
+
+	dto, err := ctl.cs.Get(cmd)
 	if err != nil {
 		ctl.sendRespWithInternalError(ctx, newResponseError(err))
 

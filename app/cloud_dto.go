@@ -34,3 +34,18 @@ func (dto *CloudRecordDTO) toCloudRecordDTO(counts int64, update string) {
 		UpdateAt: update,
 	}
 }
+
+type CountCloudCmd struct {
+	CloudType domain.CloudType
+}
+
+func ToCountCloudCmd(cloudType string) (*CountCloudCmd, error) {
+	t, err := domain.NewCloudType(cloudType)
+	if err != nil {
+		return nil, err
+	}
+
+	return &CountCloudCmd{
+		CloudType: t,
+	}, nil
+}

@@ -8,6 +8,6 @@ type CloudUsers struct {
 
 type CloudRecord interface {
 	Add(*domain.Cloud) error
-	Get() (int64, error)
+	Get(domain.CloudType) (int64, error)
 	GetUsers() (CloudUsers, error)
 }

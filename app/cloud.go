@@ -7,7 +7,7 @@ import (
 
 type CloudRecordService interface {
 	Add(*CloudRecordCmd) error
-	Get() (CloudRecordDTO, error)
+	Get(*CountCloudCmd) (CloudRecordDTO, error)
 }
 
 func NewCloudRecodeService(
@@ -33,8 +33,8 @@ func (s *cloudRecordService) Add(cmd *CloudRecordCmd) error {
 	)
 }
 
-func (s *cloudRecordService) Get() (dto CloudRecordDTO, err error) {
-	c, err := s.repo.Get()
+func (s *cloudRecordService) Get(cmd *CountCloudCmd) (dto CloudRecordDTO, err error) {
+	c, err := s.repo.Get(cmd.CloudType)
 	if err != nil {
 		return
 	}
