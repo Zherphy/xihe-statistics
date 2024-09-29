@@ -34,8 +34,9 @@ func StartWebServer(port int, timeout time.Duration, cfg *config.Config) {
 	setRouter(r, cfg)
 
 	srv := &http.Server{
-		Addr:    fmt.Sprintf(":%d", port),
-		Handler: r,
+		Addr:              fmt.Sprintf(":%d", port),
+		Handler:           r,
+		ReadHeaderTimeout: time.Duration(cfg.ReadHeaderTimeout),
 	}
 
 	defer interrupts.WaitForGracefulShutdown()

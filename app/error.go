@@ -1,5 +1,7 @@
 package app
 
+import "errors"
+
 const (
 	ErrorEmptyGitLabProjectIdPage = "empty page of project id"
 )
@@ -9,7 +11,5 @@ type errorEmptyGitLabProjectIdPage struct {
 }
 
 func IsErrorEmptyProjectIdPage(err error) bool {
-	_, ok := err.(errorEmptyGitLabProjectIdPage)
-
-	return ok
+	return errors.As(err, &errorEmptyGitLabProjectIdPage{})
 }

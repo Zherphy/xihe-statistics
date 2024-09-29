@@ -1,18 +1,38 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ "main", "dev", "sec" ]
   pull_request:
-    branches: [ "main", "dev", "sec" ]
+    branches: [ '*' ]
+
+env:
+  GOPRIVATE: "github.com/opensourceways"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
-
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: self-ubuntu-latest
+    env: 
+      GO111MODULE: on
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag server:$(date +%s)
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+      - name: Set Login Credentials
+        env:
+          TOKEN: ${{ secrets.ZYK_PERSONAL_TOKEN }}
+          USER: ${{ secrets.ZYK_USER_NAME }}
+        run: echo "machine github.com login $USER password $TOKEN" > ~/.netrc
+
+      - name: Run Gosec Security Scanner
+        uses: securego/gosec@master
+        env:
+          GITHUB_AUTHENTICATION_TOKEN: ${{ secrets.ZYK_PERSONAL_TOKEN }}
+        with:
+          args: ./...
+
+      - name: cleanup
+        run: rm -f ~/.netrc

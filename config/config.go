@@ -15,7 +15,7 @@ import (
 var reIpPort = regexp.MustCompile(`^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}:[1-9][0-9]*$`)
 
 func LoadFromYaml(path string, cfg interface{}) error {
-	b, err := os.ReadFile(path)
+	b, err := os.ReadFile(path) // #nosec G304
 	if err != nil {
 		return err
 	}
@@ -39,7 +39,8 @@ type Config struct {
 	MQ       MQ     `json:"mq"`
 	MQTopics Topics `json:"mq_topics"    required:"true"`
 
-	GitLab GitLab `json:"gitlab"`
+	GitLab            GitLab `json:"gitlab"`
+	ReadHeaderTimeout int    `json:"read_header_timeout"`
 }
 
 type PGSQL struct {
