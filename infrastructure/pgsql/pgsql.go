@@ -3,8 +3,9 @@ package pgsql
 import (
 	"context"
 	"fmt"
-	"project/xihe-statistics/config"
 	"time"
+
+	"github.com/opensourceways/xihe-statistics/config"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

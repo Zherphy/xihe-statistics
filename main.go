@@ -9,12 +9,12 @@ import (
 	liboptions "github.com/opensourceways/community-robot-lib/options"
 	"github.com/sirupsen/logrus"
 
-	"project/xihe-statistics/config"
-	"project/xihe-statistics/controller"
-	"project/xihe-statistics/infrastructure/gitlab"
-	"project/xihe-statistics/infrastructure/messages"
-	"project/xihe-statistics/infrastructure/pgsql"
-	"project/xihe-statistics/server"
+	"github.com/opensourceways/xihe-statistics/config"
+	"github.com/opensourceways/xihe-statistics/controller"
+	"github.com/opensourceways/xihe-statistics/infrastructure/gitlab"
+	"github.com/opensourceways/xihe-statistics/infrastructure/messages"
+	"github.com/opensourceways/xihe-statistics/infrastructure/pgsql"
+	"github.com/opensourceways/xihe-statistics/server"
 )
 
 type options struct {
@@ -95,6 +95,7 @@ func main() {
 	go messages.Run(messages.NewHandler(cfg, log), log)
 
 	// gitlab statisitc
+
 	go gitlab.Run(gitlab.NewHandler(cfg, log), log, cfg)
 
 	// gin

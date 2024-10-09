@@ -3,8 +3,8 @@ package app
 import (
 	"errors"
 
-	"project/xihe-statistics/domain"
-	"project/xihe-statistics/domain/repository"
+	"github.com/opensourceways/xihe-statistics/domain"
+	"github.com/opensourceways/xihe-statistics/domain/repository"
 )
 
 type DownloadRecordService interface {

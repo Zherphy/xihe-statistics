@@ -2,7 +2,8 @@ package app
 
 import (
 	"errors"
-	"project/xihe-statistics/domain"
+
+	"github.com/opensourceways/xihe-statistics/domain"
 )
 
 type CloudRecordCmd struct {

@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"project/xihe-statistics/domain/repository"
+	"github.com/opensourceways/xihe-statistics/domain/repository"
 )
 
 type GitLabRecordMapper interface {

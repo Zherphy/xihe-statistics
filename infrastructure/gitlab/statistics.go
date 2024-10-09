@@ -1,11 +1,12 @@
 package gitlab
 
 import (
-	"project/xihe-statistics/app"
-	"project/xihe-statistics/config"
-	"project/xihe-statistics/infrastructure/pgsql"
-	"project/xihe-statistics/infrastructure/repositories"
 	"time"
+
+	"github.com/opensourceways/xihe-statistics/app"
+	"github.com/opensourceways/xihe-statistics/config"
+	"github.com/opensourceways/xihe-statistics/infrastructure/pgsql"
+	"github.com/opensourceways/xihe-statistics/infrastructure/repositories"
 
 	"github.com/sirupsen/logrus"
 )

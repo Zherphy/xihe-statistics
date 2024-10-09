@@ -1,6 +1,6 @@
 package gitlab
 
-import "project/xihe-statistics/domain/platform"
+import "github.com/opensourceways/xihe-statistics/domain/platform"
 
 type cloneTotalResult struct {
 	fetches `json:"fetches"`

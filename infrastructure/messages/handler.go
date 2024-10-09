@@ -3,8 +3,8 @@ package messages
 import (
 	"github.com/sirupsen/logrus"
 
-	"project/xihe-statistics/app"
-	"project/xihe-statistics/domain"
+	"github.com/opensourceways/xihe-statistics/app"
+	"github.com/opensourceways/xihe-statistics/domain"
 )
 
 type Handler struct {

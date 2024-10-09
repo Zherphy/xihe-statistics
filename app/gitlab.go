@@ -2,8 +2,9 @@ package app
 
 import (
 	"errors"
-	"project/xihe-statistics/domain/platform"
-	"project/xihe-statistics/domain/repository"
+
+	"github.com/opensourceways/xihe-statistics/domain/platform"
+	"github.com/opensourceways/xihe-statistics/domain/repository"
 )
 
 type GitLabService interface {

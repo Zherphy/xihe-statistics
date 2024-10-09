@@ -10,10 +10,10 @@ import (
 	kfklib "github.com/opensourceways/kafka-lib/agent"
 	"github.com/sirupsen/logrus"
 
-	"project/xihe-statistics/app"
-	"project/xihe-statistics/config"
-	"project/xihe-statistics/infrastructure/pgsql"
-	"project/xihe-statistics/infrastructure/repositories"
+	"github.com/opensourceways/xihe-statistics/app"
+	"github.com/opensourceways/xihe-statistics/config"
+	"github.com/opensourceways/xihe-statistics/infrastructure/pgsql"
+	"github.com/opensourceways/xihe-statistics/infrastructure/repositories"
 )
 
 func Init(cfg kfklib.Config, log *logrus.Entry, topic config.Topics) error {

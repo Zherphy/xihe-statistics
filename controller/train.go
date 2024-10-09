@@ -5,8 +5,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"project/xihe-statistics/app"
-	"project/xihe-statistics/domain/repository"
+	"github.com/opensourceways/xihe-statistics/app"
+	"github.com/opensourceways/xihe-statistics/domain/repository"
 )
 
 func AddRouterForTrainRecordController(

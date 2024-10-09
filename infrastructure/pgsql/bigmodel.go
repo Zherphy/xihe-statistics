@@ -2,7 +2,8 @@ package pgsql
 
 import (
 	"context"
-	"project/xihe-statistics/infrastructure/repositories"
+
+	"github.com/opensourceways/xihe-statistics/infrastructure/repositories"
 )
 
 func NewBigModelMapper(table BigModelRecord) repositories.BigModelMapper {

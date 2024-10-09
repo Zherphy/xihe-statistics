@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"project/xihe-statistics/app"
-	"project/xihe-statistics/domain"
+	"github.com/opensourceways/xihe-statistics/app"
+	"github.com/opensourceways/xihe-statistics/domain"
 )
 
 type MediaRequest struct {

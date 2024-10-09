@@ -3,7 +3,7 @@ package pgsql
 import (
 	"context"
 
-	"project/xihe-statistics/infrastructure/repositories"
+	"github.com/opensourceways/xihe-statistics/infrastructure/repositories"
 )
 
 func NewRegisterRecordMapper(table RegisterRecord) repositories.RegisterRecordMapper {

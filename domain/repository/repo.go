@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"project/xihe-statistics/domain"
+	"github.com/opensourceways/xihe-statistics/domain"
 )
 
 type RepoRecords struct {

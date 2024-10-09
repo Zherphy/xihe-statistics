@@ -11,12 +11,12 @@ import (
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 
-	"project/xihe-statistics/config"
-	"project/xihe-statistics/controller"
-	"project/xihe-statistics/docs"
-	"project/xihe-statistics/infrastructure/gitlab"
-	"project/xihe-statistics/infrastructure/pgsql"
-	"project/xihe-statistics/infrastructure/repositories"
+	"github.com/opensourceways/xihe-statistics/config"
+	"github.com/opensourceways/xihe-statistics/controller"
+	"github.com/opensourceways/xihe-statistics/docs"
+	"github.com/opensourceways/xihe-statistics/infrastructure/gitlab"
+	"github.com/opensourceways/xihe-statistics/infrastructure/pgsql"
+	"github.com/opensourceways/xihe-statistics/infrastructure/repositories"
 )
 
 type Service struct {

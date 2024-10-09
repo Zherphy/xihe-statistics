@@ -1,6 +1,6 @@
 package app
 
-import "project/xihe-statistics/domain/repository"
+import "github.com/opensourceways/xihe-statistics/domain/repository"
 
 type D2Service interface {
 	Get() (D2DTO, error)

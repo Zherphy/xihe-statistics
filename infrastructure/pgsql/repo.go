@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"project/xihe-statistics/infrastructure/repositories"
+	"github.com/opensourceways/xihe-statistics/infrastructure/repositories"
 )
 
 func NewUserWithRepoMapper(table UserWithRepo) repositories.UserWithRepoMapper {

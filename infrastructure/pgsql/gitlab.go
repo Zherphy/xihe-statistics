@@ -2,7 +2,8 @@ package pgsql
 
 import (
 	"context"
-	"project/xihe-statistics/infrastructure/repositories"
+
+	"github.com/opensourceways/xihe-statistics/infrastructure/repositories"
 )
 
 func NewGitLabRecordMapper(table GitLabRecord) repositories.GitLabRecordMapper {

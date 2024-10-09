@@ -1,6 +1,6 @@
 package app
 
-import "project/xihe-statistics/domain"
+import "github.com/opensourceways/xihe-statistics/domain"
 
 type BigModelDTO struct {
 	BigModel string   `json:"bigmodel"`

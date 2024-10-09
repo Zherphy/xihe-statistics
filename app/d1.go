@@ -1,7 +1,7 @@
 package app
 
 import (
-	"project/xihe-statistics/domain/repository"
+	"github.com/opensourceways/xihe-statistics/domain/repository"
 )
 
 type D1Service interface {

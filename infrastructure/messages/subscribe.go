@@ -8,10 +8,10 @@ import (
 	kafka "github.com/opensourceways/kafka-lib/agent"
 	"github.com/sirupsen/logrus"
 
-	"project/xihe-statistics/config"
-	"project/xihe-statistics/domain"
-	"project/xihe-statistics/domain/message"
-	"project/xihe-statistics/utils"
+	"github.com/opensourceways/xihe-statistics/config"
+	"github.com/opensourceways/xihe-statistics/domain"
+	"github.com/opensourceways/xihe-statistics/domain/message"
+	"github.com/opensourceways/xihe-statistics/utils"
 )
 
 const (

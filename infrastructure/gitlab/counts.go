@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"project/xihe-statistics/config"
-	"project/xihe-statistics/domain/platform"
+
+	"github.com/opensourceways/xihe-statistics/config"
+	"github.com/opensourceways/xihe-statistics/domain/platform"
 
 	"github.com/opensourceways/community-robot-lib/utils"
 )

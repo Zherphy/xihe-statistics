@@ -1,6 +1,6 @@
 package repository
 
-import "project/xihe-statistics/domain"
+import "github.com/opensourceways/xihe-statistics/domain"
 
 type DownloadRecord interface {
 	Add(*domain.DownloadRecord) error

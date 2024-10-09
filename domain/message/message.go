@@ -1,6 +1,6 @@
 package message
 
-import "project/xihe-statistics/domain"
+import "github.com/opensourceways/xihe-statistics/domain"
 
 type BigModelRecordHandler interface {
 	AddBigModelRecord(*domain.UserWithBigModel) error
